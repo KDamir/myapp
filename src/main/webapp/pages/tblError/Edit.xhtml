@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TblErrorEditDlg" widgetVar="TblErrorEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTblErrorTitle}">
+            <h:form id="TblErrorEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tblErrorController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTblErrorLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{tblErrorController.selected.id}" title="#{bundle.EditTblErrorTitle_id}" required="true" requiredMessage="#{bundle.EditTblErrorRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditTblErrorLabel_dateReg}" for="dateReg" />
+                        <p:calendar id="dateReg" pattern="MM/dd/yyyy HH:mm:ss" value="#{tblErrorController.selected.dateReg}" title="#{bundle.EditTblErrorTitle_dateReg}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditTblErrorLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{tblErrorController.selected.description}" title="#{bundle.EditTblErrorTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditTblErrorLabel_CEmployer}" for="CEmployer" />
+                        <p:selectOneMenu id="CEmployer" value="#{tblErrorController.selected.CEmployer}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{employerController.itemsAvailableSelectOne}"
+                                           var="CEmployerItem"
+                                           itemValue="#{CEmployerItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditTblErrorLabel_CLevel}" for="CLevel" />
+                        <p:selectOneMenu id="CLevel" value="#{tblErrorController.selected.CLevel}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{levelErrorController.itemsAvailableSelectOne}"
+                                           var="CLevelItem"
+                                           itemValue="#{CLevelItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditTblErrorLabel_CProject}" for="CProject" />
+                        <p:selectOneMenu id="CProject" value="#{tblErrorController.selected.CProject}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{projectController.itemsAvailableSelectOne}"
+                                           var="CProjectItem"
+                                           itemValue="#{CProjectItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditTblErrorLabel_CStatus}" for="CStatus" />
+                        <p:selectOneMenu id="CStatus" value="#{tblErrorController.selected.CStatus}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{statusErrorController.itemsAvailableSelectOne}"
+                                           var="CStatusItem"
+                                           itemValue="#{CStatusItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tblErrorController.update}" value="#{bundle.Save}" update="display,:TblErrorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TblErrorEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TblErrorEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
