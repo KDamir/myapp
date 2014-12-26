@@ -2,14 +2,24 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./../template/default.xhtml"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:define name="top">
-        top
+        header
     </ui:define>
 
     <ui:define name="content">
-        <p:outputLabel value="#{appBean.message}"/>
+        <h:form id="idForm">
+            <p:dataTable value="#{appBean.errors}" var="er">
+                <p:column>
+                    <h:outputText value="#{er.CEmployer}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{er.CProject}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
     </ui:define>
 
 </ui:composition>
