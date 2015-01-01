@@ -5,6 +5,8 @@
  */
 package kz.app.myapp.util;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -31,7 +33,16 @@ public class SprOtdelConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (value == null) {
+            return null;
+        }
+        if (value instanceof SprOtdel) {
+            SprOtdel o = (SprOtdel) value;
+            return getStringKey(o.getId());
+        } else {
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{value, value.getClass().getName(), SprOtdel.class.getName()});
+            return null;
+        }
     }
     
     java.lang.Integer getKey(String value) {

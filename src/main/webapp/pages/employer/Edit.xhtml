@@ -13,11 +13,12 @@
                     <p:outputLabel value="#{bundle.EditEmployerLabel_name}" for="name" />
                     <p:inputText id="name" value="#{employerController.selected.name}" title="#{bundle.EditEmployerTitle_name}" />
                     <p:outputLabel value="#{bundle.EditEmployerLabel_COtdel}" for="COtdel" />
-                    <p:selectOneMenu id="COtdel" value="#{employerController.selected.COtdel}" >
+                    <p:selectOneMenu id="COtdel" value="#{employerController.selected.COtdel}" converter="sprOtdelConv">
                         <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                        <f:selectItems value="#{sprOtdelController.itemsAvailableSelectOne}"
+                        <f:selectItems value="#{commonController.itemsSprOtdel}"
                                        var="COtdelItem"
-                                       itemValue="#{COtdelItem}"/>
+                                       itemValue="#{COtdelItem}"
+                                       itemLabel="#{COtdelItem.name}"/>
                     </p:selectOneMenu>
                 </p:panelGrid>
                 <p:commandButton actionListener="#{employerController.update}" value="#{bundle.Save}" update="display,:EmployerListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EmployerEditDialog');"/>
