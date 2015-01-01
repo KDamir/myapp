@@ -17,10 +17,11 @@
                         <p:outputLabel value="#{bundle.CreateEmployerLabel_name}" for="name" />
                         <p:inputText id="name" value="#{employerController.selected.name}" title="#{bundle.CreateEmployerTitle_name}" />
                         <p:outputLabel value="#{bundle.CreateEmployerLabel_COtdel}" for="COtdel" />
-                        <p:selectOneMenu id="COtdel" value="#{employerController.selected.COtdel}" >
-                            <f:selectItems value="#{sprOtdelController.itemsAvailableSelectOne}"
+                        <p:selectOneMenu id="COtdel" value="#{employerController.selected.COtdel}" converter="sprOtdelConv">
+                            <f:selectItems value="#{commonController.itemsSprOtdel}"
                                            var="COtdelItem"
-                                           itemValue="#{COtdelItem}"/>
+                                           itemValue="#{COtdelItem}"
+                                           itemLabel="#{COtdelItem.name}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{employerController.create}" value="#{bundle.Save}" update="display,:EmployerListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmployerCreateDialog');"/>

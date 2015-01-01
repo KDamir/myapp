@@ -7,8 +7,8 @@ package kz.app.myapp;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import kz.app.myapp.entity.LevelError;
 import kz.app.myapp.entity.Project;
@@ -23,16 +23,16 @@ import kz.app.myapp.entity.StatusError;
 @SessionScoped
 public class CommonController implements Serializable{
 
-    @EJB
+    @Inject
     private StatusErrorFacade statusErrorFacade;
     
-    @EJB
+    @Inject
     private ProjectFacade projectFacade;
     
-    @EJB
+    @Inject
     private LevelErrorFacade levelErrorFacade;
     
-    @EJB
+    @Inject
     private SprOtdelFacade sprOtdelFacade;
     
     public List<StatusError> getItemsStatusError() {
@@ -61,6 +61,10 @@ public class CommonController implements Serializable{
     
     public StatusError getStatusError(java.lang.Integer id) {
         return getStatusErrorFacade().find(id);
+    }
+    
+    public SprOtdel getSprOtdel(java.lang.Integer id) {
+        return getSprOtdelFacade().find(id);
     }
 
     //<editor-fold defaultstate="collapsed" desc="getters">
