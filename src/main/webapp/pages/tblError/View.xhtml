@@ -17,13 +17,13 @@
                     <h:outputText value="#{bundle.ViewTblErrorLabel_description}"/>
                     <h:outputText value="#{tblErrorController.selected.description}" title="#{bundle.ViewTblErrorTitle_description}"/>
                     <h:outputText value="#{bundle.ViewTblErrorLabel_CEmployer}"/>
-                    <h:outputText value="#{tblErrorController.selected.CEmployer}" title="#{bundle.ViewTblErrorTitle_CEmployer}"/>
+                    <h:outputText value="#{tblErrorController.selected.CEmployer.name}" title="#{bundle.ViewTblErrorTitle_CEmployer}"/>
                     <h:outputText value="#{bundle.ViewTblErrorLabel_CLevel}"/>
-                    <h:outputText value="#{tblErrorController.selected.CLevel}" title="#{bundle.ViewTblErrorTitle_CLevel}"/>
+                    <h:outputText value="#{tblErrorController.selected.CLevel.name}" title="#{bundle.ViewTblErrorTitle_CLevel}"/>
                     <h:outputText value="#{bundle.ViewTblErrorLabel_CProject}"/>
-                    <h:outputText value="#{tblErrorController.selected.CProject}" title="#{bundle.ViewTblErrorTitle_CProject}"/>
+                    <h:outputText value="#{tblErrorController.selected.CProject.name}" title="#{bundle.ViewTblErrorTitle_CProject}"/>
                     <h:outputText value="#{bundle.ViewTblErrorLabel_CStatus}"/>
-                    <h:outputText value="#{tblErrorController.selected.CStatus}" title="#{bundle.ViewTblErrorTitle_CStatus}"/>
+                    <h:outputText value="#{tblErrorController.selected.CStatus.name}" title="#{bundle.ViewTblErrorTitle_CStatus}"/>
                 </p:panelGrid>
                 <p:commandButton value="#{bundle.Close}" onclick="TblErrorViewDialog.hide()"/>
             </h:panelGroup>

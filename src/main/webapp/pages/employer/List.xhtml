@@ -39,7 +39,7 @@
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListEmployerTitle_COtdel}"/>
                         </f:facet>
-                        <h:outputText value="#{item.COtdel}"/>
+                        <h:outputText value="#{item.COtdel.name}"/>
                     </p:column>
                     <f:facet name="footer">
                         <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{employerController.prepareCreate}" update=":EmployerCreateForm" oncomplete="PF('EmployerCreateDialog').show()"/>

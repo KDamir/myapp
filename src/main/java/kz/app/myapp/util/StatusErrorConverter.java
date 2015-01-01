@@ -18,7 +18,7 @@ import kz.app.myapp.entity.StatusError;
  *
  * @author Дамир
  */
-@FacesConverter(forClass = StatusError.class,value = "statusErrorConv")
+@FacesConverter(forClass = StatusError.class)
 public class StatusErrorConverter implements Converter {
 
     @Override

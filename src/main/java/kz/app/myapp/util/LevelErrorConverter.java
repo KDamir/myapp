@@ -18,7 +18,7 @@ import kz.app.myapp.entity.LevelError;
  *
  * @author Дамир
  */
-@FacesConverter(forClass = LevelError.class, value = "levelErrorConv")
+@FacesConverter(forClass = LevelError.class)
 public class LevelErrorConverter implements Converter {
 
     @Override

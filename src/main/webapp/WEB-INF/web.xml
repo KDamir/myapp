@@ -17,6 +17,10 @@
         <extension>jsp</extension>
         <mime-type>text/html</mime-type>
     </mime-mapping>
+    <mime-mapping>
+        <extension>xhtml</extension>
+        <mime-type>application/xml</mime-type>
+    </mime-mapping>
     <session-config>
         <session-timeout>
             30

@@ -23,7 +23,7 @@
                                        itemLabel="#{CEmployerItem.name}"/>
                     </p:selectOneMenu>
                     <p:outputLabel value="#{bundle.EditTblErrorLabel_CLevel}" for="CLevel" />
-                    <p:selectOneMenu id="CLevel" value="#{tblErrorController.selected.CLevel}" converter="levelErrorConv">
+                    <p:selectOneMenu id="CLevel" value="#{tblErrorController.selected.CLevel}">
                         <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                         <f:selectItems value="#{commonController.itemsLevelError}"
                                        var="CLevelItem"
@@ -31,7 +31,7 @@
                                        itemLabel="#{CLevelItem.name}"/>
                     </p:selectOneMenu>
                     <p:outputLabel value="#{bundle.EditTblErrorLabel_CProject}" for="CProject" />
-                    <p:selectOneMenu id="CProject" value="#{tblErrorController.selected.CProject}" converter="projectConv">
+                    <p:selectOneMenu id="CProject" value="#{tblErrorController.selected.CProject}">
                         <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                         <f:selectItems value="#{commonController.itemsProject}"
                                        var="CProjectItem"
@@ -39,7 +39,7 @@
                                        itemLabel="#{CProjectItem.name}"/>
                     </p:selectOneMenu>
                     <p:outputLabel value="#{bundle.EditTblErrorLabel_CStatus}" for="CStatus" />
-                    <p:selectOneMenu id="CStatus" value="#{tblErrorController.selected.CStatus}" converter="statusErrorConv">
+                    <p:selectOneMenu id="CStatus" value="#{tblErrorController.selected.CStatus}">
                         <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                         <f:selectItems value="#{commonController.itemsStatusError}"
                                        var="CStatusItem"

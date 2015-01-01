@@ -18,7 +18,7 @@ import kz.app.myapp.entity.SprOtdel;
  *
  * @author Дамир
  */
-@FacesConverter(forClass = SprOtdel.class,value = "sprOtdelConv")
+@FacesConverter(forClass = SprOtdel.class)
 public class SprOtdelConverter implements Converter {
 
     @Override

@@ -18,7 +18,7 @@ import kz.app.myapp.entity.Project;
  *
  * @author Дамир
  */
-@FacesConverter(forClass = Project.class,value = "projectConv")
+@FacesConverter(forClass = Project.class)
 public class ProjectConverter implements Converter {
 
     @Override
