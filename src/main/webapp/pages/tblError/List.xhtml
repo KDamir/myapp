@@ -51,25 +51,25 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTblErrorTitle_CEmployer}"/>
                             </f:facet>
-                            <h:outputText value="#{item.CEmployer}"/>
+                            <h:outputText value="#{item.CEmployer.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTblErrorTitle_CLevel}"/>
                             </f:facet>
-                            <h:outputText value="#{item.CLevel}"/>
+                            <h:outputText value="#{item.CLevel.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTblErrorTitle_CProject}"/>
                             </f:facet>
-                            <h:outputText value="#{item.CProject}"/>
+                            <h:outputText value="#{item.CProject.name}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTblErrorTitle_CStatus}"/>
                             </f:facet>
-                            <h:outputText value="#{item.CStatus}"/>
+                            <h:outputText value="#{item.CStatus.name}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{tblErrorController.prepareCreate}" update=":TblErrorCreateForm" oncomplete="PF('TblErrorCreateDialog').show()"/>
