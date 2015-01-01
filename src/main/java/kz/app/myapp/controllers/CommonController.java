@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kz.app.myapp;
+package kz.app.myapp.controllers;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import kz.app.myapp.facade.LevelErrorFacade;
+import kz.app.myapp.facade.ProjectFacade;
+import kz.app.myapp.facade.SprOtdelFacade;
+import kz.app.myapp.facade.StatusErrorFacade;
 import kz.app.myapp.entity.LevelError;
 import kz.app.myapp.entity.Project;
 import kz.app.myapp.entity.SprOtdel;

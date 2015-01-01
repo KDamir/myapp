@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kz.app.myapp;
+package kz.app.myapp.facade;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import kz.app.myapp.entity.Employer;
+import kz.app.myapp.entity.TblError;
 
 /**
  *
  * @author damir.keldibekov
  */
 @Stateless
-public class EmployerFacade extends AbstractFacade<Employer> {
+public class TblErrorFacade extends AbstractFacade<TblError> {
     @PersistenceContext(unitName = "kz.app_myapp_war_1.0PU")
     private EntityManager em;
 
@@ -24,8 +24,8 @@ public class EmployerFacade extends AbstractFacade<Employer> {
         return em;
     }
 
-    public EmployerFacade() {
-        super(Employer.class);
+    public TblErrorFacade() {
+        super(TblError.class);
     }
     
 }

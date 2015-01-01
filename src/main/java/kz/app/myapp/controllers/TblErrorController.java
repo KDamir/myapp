@@ -1,6 +1,6 @@
-package kz.app.myapp;
+package kz.app.myapp.controllers;
 
-import kz.app.myapp.entity.Employer;
+import kz.app.myapp.entity.TblError;
 import kz.app.myapp.util.JsfUtil;
 import kz.app.myapp.util.JsfUtil.PersistAction;
 
@@ -17,24 +17,25 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import kz.app.myapp.facade.TblErrorFacade;
 
-@Named("employerController")
+@Named("tblErrorController")
 @SessionScoped
-public class EmployerController implements Serializable {
+public class TblErrorController implements Serializable {
 
     @EJB
-    private kz.app.myapp.EmployerFacade ejbFacade;
-    private List<Employer> items = null;
-    private Employer selected;
+    private kz.app.myapp.facade.TblErrorFacade ejbFacade;
+    private List<TblError> items = null;
+    private TblError selected;
 
-    public EmployerController() {
+    public TblErrorController() {
     }
 
-    public Employer getSelected() {
+    public TblError getSelected() {
         return selected;
     }
 
-    public void setSelected(Employer selected) {
+    public void setSelected(TblError selected) {
         this.selected = selected;
     }
 
@@ -44,36 +45,36 @@ public class EmployerController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private EmployerFacade getFacade() {
+    private TblErrorFacade getFacade() {
         return ejbFacade;
     }
 
-    public Employer prepareCreate() {
-        selected = new Employer();
+    public TblError prepareCreate() {
+        selected = new TblError();
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("EmployerCreated"));
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("TblErrorCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("EmployerUpdated"));
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("TblErrorUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("EmployerDeleted"));
+        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("TblErrorDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
-    public List<Employer> getItems() {
+    public List<TblError> getItems() {
         if (items == null) {
             items = getFacade().findAll();
         }
@@ -108,29 +109,29 @@ public class EmployerController implements Serializable {
         }
     }
 
-    public Employer getEmployer(java.lang.Integer id) {
+    public TblError getTblError(java.lang.Integer id) {
         return getFacade().find(id);
     }
 
-    public List<Employer> getItemsAvailableSelectMany() {
+    public List<TblError> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
 
-    public List<Employer> getItemsAvailableSelectOne() {
+    public List<TblError> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Employer.class)
-    public static class EmployerControllerConverter implements Converter {
+    @FacesConverter(forClass = TblError.class)
+    public static class TblErrorControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            EmployerController controller = (EmployerController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "employerController");
-            return controller.getEmployer(getKey(value));
+            TblErrorController controller = (TblErrorController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "tblErrorController");
+            return controller.getTblError(getKey(value));
         }
 
         java.lang.Integer getKey(String value) {
@@ -150,11 +151,11 @@ public class EmployerController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Employer) {
-                Employer o = (Employer) object;
+            if (object instanceof TblError) {
+                TblError o = (TblError) object;
                 return getStringKey(o.getId());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Employer.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), TblError.class.getName()});
                 return null;
             }
         }

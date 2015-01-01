@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kz.app.myapp;
+package kz.app.myapp.facade;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import kz.app.myapp.entity.LevelError;
+import kz.app.myapp.entity.StatusError;
 
 /**
  *
  * @author Дамир
  */
 @Stateless
-public class LevelErrorFacade extends AbstractFacade<LevelError> {
+public class StatusErrorFacade extends AbstractFacade<StatusError> {
     @PersistenceContext(unitName = "kz.app_myapp_war_1.0PU")
     private EntityManager em;
 
@@ -24,8 +24,8 @@ public class LevelErrorFacade extends AbstractFacade<LevelError> {
         return em;
     }
 
-    public LevelErrorFacade() {
-        super(LevelError.class);
+    public StatusErrorFacade() {
+        super(StatusError.class);
     }
     
 }
