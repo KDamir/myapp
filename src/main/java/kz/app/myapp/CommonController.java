@@ -50,6 +50,18 @@ public class CommonController implements Serializable{
     public List<LevelError> getItemsLevelError() {
         return getLevelErrorFacade().findAll();
     }
+    
+    public LevelError getLevelError(java.lang.Integer id) {
+        return getLevelErrorFacade().find(id);
+    }
+    
+    public Project getProject(java.lang.Integer id) {
+        return getProjectFacade().find(id);
+    }
+    
+    public StatusError getStatusError(java.lang.Integer id) {
+        return getStatusErrorFacade().find(id);
+    }
 
     //<editor-fold defaultstate="collapsed" desc="getters">
     public StatusErrorFacade getStatusErrorFacade() {
