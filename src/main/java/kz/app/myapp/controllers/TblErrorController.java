@@ -9,22 +9,21 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.EJB;
-import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
 import kz.app.myapp.facade.TblErrorFacade;
 
 @Named("tblErrorController")
 @SessionScoped
 public class TblErrorController implements Serializable {
 
-    @EJB
-    private kz.app.myapp.facade.TblErrorFacade ejbFacade;
+    @Inject
+    private TblErrorFacade tblErrorFacade;
     private List<TblError> items = null;
     private TblError selected;
 
@@ -46,7 +45,7 @@ public class TblErrorController implements Serializable {
     }
 
     private TblErrorFacade getFacade() {
-        return ejbFacade;
+        return tblErrorFacade;
     }
 
     public TblError prepareCreate() {
@@ -91,17 +90,6 @@ public class TblErrorController implements Serializable {
                     getFacade().remove(selected);
                 }
                 JsfUtil.addSuccessMessage(successMessage);
-            } catch (EJBException ex) {
-                String msg = "";
-                Throwable cause = ex.getCause();
-                if (cause != null) {
-                    msg = cause.getLocalizedMessage();
-                }
-                if (msg.length() > 0) {
-                    JsfUtil.addErrorMessage(msg);
-                } else {
-                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-                }
             } catch (Exception ex) {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
                 JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
